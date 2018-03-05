@@ -65,7 +65,7 @@ public class gui {
                     if(index.get(line2.charAt(0))!=null) {
                         int x = index.get(line2.charAt(0));
                         db.get(x).add(line2);
-                        if(line2.contains(" "))
+                        if(line2.contains(" ")||line2.contains("\u200C"))
                             db.get(x).add(line2.replace(" ","").replace("\u200C",""));
                     } else {
                         System.out.print(line2.charAt(0));
@@ -91,8 +91,8 @@ public class gui {
     public void find(){
         res1.setText("");
         String req = req1.getText();
-        if(req.contains(" "))
-            req=req.replace(" ","");
+        if(req.contains(" ")||req.contains("\u200C"))
+            req=req.replace(" ","").replace("\u200C","");
         Vector <String> prm = new Vector<String >();
         permutation("",req,prm);
         for(int j=0;j<prm.size();j++) {
